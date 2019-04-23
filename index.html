@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-on:input="changeTitle" />
+  <h1>{{ title }}</h1>
+  <p>{{ sayHello() }} <a :href="link" target="_blank">google</a>.</p>
+  <p v-html="markUp"></p>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      title: 'This is some title',
+      link: 'http://google.com',
+      markUp: '<a href="https://facebook.com">facebook</a>'
+    },
+    methods: {
+      changeTitle(event) {
+        this.title = event.target.value;
+      },
+      sayHello() {
+        return 'Say hello to the search engine';
+      }
+    }
+  });
+</script>
+</body>
+</html>

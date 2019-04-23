@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+<div id="app">
+  <p>{{ title }}</p>
+  <button v-on:click="title = 'title 2'">Change title</button>
+  <button v-on:click="destroy">Destroy instance</button>
+</div>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      title: 'title 1'
+    },
+    methods: {
+      destroy() {
+        this.$destroy();
+      }
+    },
+    beforeCreate() {
+      let vm = Object.assign({}, this);
+      console.log('beforeCreate()', vm);
+    },
+    created() {
+      let vm = Object.assign({}, this);
+      console.log('created()', vm);
+    },
+    beforeMount() {
+      let vm = Object.assign({}, this);
+      console.log('beforeMount()', vm);
+    },
+    mounted() {
+      let vm = Object.assign({}, this);
+      console.log('mounted()', vm);
+    },
+    beforeUpdate() {
+      let vm = Object.assign({}, this);
+      console.log('beforeUpdate()', vm);
+    },
+    updated() {
+      let vm = Object.assign({}, this);
+      console.log('updated()', vm);
+    },
+    beforeDestroy() {
+      let vm = Object.assign({}, this);
+      console.log('beforeDestroy()', vm);
+    },
+    destroyed() {
+      let vm = Object.assign({}, this);
+      console.log('destroyed()', vm);
+    }
+  });
+</script>
+</body>
+</html>
